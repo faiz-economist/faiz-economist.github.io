@@ -6,61 +6,51 @@
     <title>Faiz Ur Rehman - Economist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        
         body {
+            font-family: Arial, sans-serif;
             line-height: 1.6;
+            margin: 0;
+            padding: 20px;
             color: #333;
             background-color: #f9f9f9;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
         
-        .navigation {
+        .n-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .n-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
         }
         
-        .nav-links a {
-            margin-left: 20px;
+        .n-nav a {
             text-decoration: none;
             color: #2c3e50;
             font-weight: 500;
         }
         
-        .nav-links a:hover {
-            color: #3498db;
-        }
-        
-        .n-article {
-            margin: 20px 0;
-        }
-        
         .image-text {
             display: flex;
-            flex-wrap: wrap;
             gap: 30px;
-            align-items: flex-start;
         }
         
         .image-text--image {
-            flex: 0 0 300px;
+            flex: 0 0 250px;
             text-align: center;
         }
         
         .faiz-image {
             width: 100%;
-            max-width: 250px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
@@ -68,15 +58,15 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             margin-top: 15px;
         }
         
         .social-links a {
             display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
             text-align: center;
             background-color: #f1f1f1;
             border-radius: 50%;
@@ -87,18 +77,26 @@
         .social-links a:hover {
             background-color: #3498db;
             color: white;
-            transform: translateY(-3px);
         }
         
         .content-section {
             flex: 1;
-            min-width: 300px;
         }
         
         .content-section p {
             margin-bottom: 15px;
         }
         
+        .content-section a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -162,7 +160,6 @@
         @media (max-width: 768px) {
             .image-text {
                 flex-direction: column;
-                align-items: center;
             }
             
             .image-text--image {
@@ -173,69 +170,71 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Menu -->
-    <div class="navigation">
-        <div class="nav-brand">
-            <h1>Faiz Ur Rehman</h1>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href="teaching.html">Teaching</a>
-            <a href="blogs.html">Blogs</a>
-        </div>
-    </div>
-    
-    <!-- SECTION: MAIN BODY -->
-    <div class="n-article">
-        <div class="image-text">
-            <div class="image-text--image">
-                <img src="media/image.jpg" alt="Faiz Ur Rehman" class="faiz-image">
-                <div class="social-links">
-                    <a href="https://ibacity-my.sharepoint.com/:b:/g/personal/faizrehman_iba_edu_pk/EarGFrOF189AqmVkCNLqhcIBW75Tzs5JbGaxEsDn7IQkpQ?e=KGDkb8" target="_blank" title="Download CV">
-                        <i class="fas fa-file-pdf"></i>
-                    </a>
-                    <a href="#" onclick="showEmailPopup(); return false;" class="email-link" title="Email"> 
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=wpZKXggAAAAJ&hl=en" target="_blank" title="Google Scholar">
-                        <i class="fas fa-graduation-cap"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/faiz-ur-rehman-74ba33b7/" class="contact-item linkedin-link" target="_blank" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://x.com/faiz_economist?lang=en" target="_blank" title="Twitter/X">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
+    <div class="n-container">
+        <!-- Navigation Menu -->
+        <div class="n-nav">
+            <div class="n-nav-brand">
+                <h1>Faiz Ur Rehman</h1>
             </div>
-            <div class="content-section">
-                <p><strong>Welcome to My Academic Homepage!</strong></p>
-                
-                <p>
-                    I am a <strong>Professor of Economics</strong> at the 
-                    <a href="https://www.iba.edu.pk" target="_blank" rel="noopener noreferrer" aria-label="Institute of Business Administration Karachi (opens in a new tab)">
-                    Institute of Business Administration (IBA), Karachi
-                    </a>. 
-                    My research focuses on applied economics, particularly in the areas of 
-                    <em>political economy</em>, the <em>economics of conflict</em> &amp; <em>terrorism</em>.
-                </p>
-                
-                <p>
-                    I hold a <strong>PhD in Economics</strong> from the 
-                    <a href="https://edle-phd.eu/" target="_blank" rel="noopener noreferrer" aria-label="European Doctorate in Law and Economics (opens in a new tab)">
-                    Universities of Bologna, Hamburg, and Erasmus Rotterdam
-                    </a>, awarded through the Erasmus Mundus fellowship as part of the prestigious 
-                    European Doctorate in Law and Economics (EDLE) program. 
-                    Before joining IBA in 2021, I served as an Assistant Professor at 
-                    <a href="https://www.qu.edu.pk" target="_blank" rel="noopener noreferrer" aria-label="Quaid-i-Azam University (opens in a new tab)">
-                    Quaid-i-Azam University, Islamabad
-                    </a>.
-                </p>
-                
-                <p>
-                    <strong>Research Fields:</strong> Political Economy, Economics of Conflict &amp; Terrorism, Development Economics
-                </p>
+            <div class="n-nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="teaching.html">Teaching</a>
+                <a href="blogs.html">Blogs</a>
+            </div>
+        </div>
+
+        <!-- SECTION: MAIN BODY -->
+        <div class="n-article">
+            <div class="image-text">
+                <div class="image-text--image">
+                    <img src="media/image.jpg" alt="Faiz Ur Rehman" class="faiz-image">
+                    <div class="social-links">
+                        <a href="https://ibacity-my.sharepoint.com/:b:/g/personal/faizrehman_iba_edu_pk/EarGFrOF189AqmVkCNLqhcIBW75Tzs5JbGaxEsDn7IQkpQ?e=KGDkb8" target="_blank" title="Download CV">
+                            <i class="fas fa-file-pdf"></i>
+                        </a>
+                        <a href="#" onclick="showEmailPopup(); return false;" class="email-link" title="Email"> 
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=wpZKXggAAAAJ&hl=en" target="_blank" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/faiz-ur-rehman-74ba33b7/" class="contact-item linkedin-link" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://x.com/faiz_economist?lang=en" target="_blank" title="Twitter/X">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="content-section">
+                    <p><strong>Welcome to My Academic Homepage!</strong></p>
+                    
+                    <p>
+                        I am a <strong>Professor of Economics</strong> at the 
+                        <a href="https://www.iba.edu.pk" target="_blank" rel="noopener noreferrer" aria-label="Institute of Business Administration Karachi (opens in a new tab)">
+                        Institute of Business Administration (IBA), Karachi
+                        </a>. 
+                        My research focuses on applied economics, particularly in the areas of 
+                        <em>political economy</em>, the <em>economics of conflict</em> &amp; <em>terrorism</em>.
+                    </p>
+                    
+                    <p>
+                        I hold a <strong>PhD in Economics</strong> from the 
+                        <a href="https://edle-phd.eu/" target="_blank" rel="noopener noreferrer" aria-label="European Doctorate in Law and Economics (opens in a new tab)">
+                        Universities of Bologna, Hamburg, and Erasmus Rotterdam
+                        </a>, awarded through the Erasmus Mundus fellowship as part of the prestigious 
+                        European Doctorate in Law and Economics (EDLE) program. 
+                        Before joining IBA in 2021, I served as an Assistant Professor at 
+                        <a href="https://www.qu.edu.pk" target="_blank" rel="noopener noreferrer" aria-label="Quaid-i-Azam University (opens in a new tab)">
+                        Quaid-i-Azam University, Islamabad
+                        </a>.
+                    </p>
+                    
+                    <p>
+                        <strong>Research Fields:</strong> Political Economy, Economics of Conflict &amp; Terrorism, Development Economics
+                    </p>
+                </div>
             </div>
         </div>
     </div>
