@@ -392,20 +392,15 @@
                     <a href="research-papers">Research Papers</a>
                     <a href="seminars-conferences">Seminars & Conferences</a>
                     <a href="academic-services">Academic Services</a>
-                  </div>
-                  </div>
+                </div>
+            </div>
             <span class="separator">|</span>
             <a href="teaching">TEACHING</a>
             <span class="separator">|</span>
-            </div>
-                  </div>
-            <div class="dropdown">
-                <span class="dropdown-trigger">OP-ED/BLOGS</span>
-                <div class="dropdown-content">
-                    <a href="op-ed">Op-ed</a>
-                    <a href="blogs">Blogs</a>
-                    </div>
-                  </div>
+            <a href="op-ed">OP-ED</a>
+            <span class="separator">|</span>
+        </div>
+    </div>
           
     <!-- SECTION: MAIN BODY -->
     <div class="n-article">
@@ -490,28 +485,32 @@
     <script>
         let dropdownTimeout;
         
-        function showDropdown() {
+        function showDropdown(dropdownElement) {
             clearTimeout(dropdownTimeout);
-            const dropdown = document.querySelector('.dropdown-content');
+            const dropdown = dropdownElement.querySelector('.dropdown-content');
             dropdown.classList.add('show');
         }
         
-        function hideDropdown() {
+        function hideDropdown(dropdownElement) {
             dropdownTimeout = setTimeout(() => {
-                const dropdown = document.querySelector('.dropdown-content');
+                const dropdown = dropdownElement.querySelector('.dropdown-content');
                 dropdown.classList.remove('show');
             }, 300); // 300ms delay before hiding
         }
         
         // Add event listeners for dropdown
         document.addEventListener('DOMContentLoaded', function() {
-            const dropdownTrigger = document.querySelector('.dropdown-trigger');
-            const dropdownContent = document.querySelector('.dropdown-content');
+            const dropdowns = document.querySelectorAll('.dropdown');
             
-            dropdownTrigger.addEventListener('mouseenter', showDropdown);
-            dropdownTrigger.addEventListener('mouseleave', hideDropdown);
-            dropdownContent.addEventListener('mouseenter', showDropdown);
-            dropdownContent.addEventListener('mouseleave', hideDropdown);
+            dropdowns.forEach(dropdown => {
+                const dropdownTrigger = dropdown.querySelector('.dropdown-trigger');
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                
+                dropdownTrigger.addEventListener('mouseenter', () => showDropdown(dropdown));
+                dropdownTrigger.addEventListener('mouseleave', () => hideDropdown(dropdown));
+                dropdownContent.addEventListener('mouseenter', () => showDropdown(dropdown));
+                dropdownContent.addEventListener('mouseleave', () => hideDropdown(dropdown));
+            });
         });
 
         function showEmailPopup() {
